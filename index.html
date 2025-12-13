@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>酪无止境 CHEESENDLESS</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <!--设置ico图标-->
+    <link rel="icon" href="assets/cheesendless.png">
+</head>
+<body>
+    <!-- 预加载效果 - 骨架屏 -->
+    <div class="preloader">
+        <div class="skeleton">
+            <div class="skeleton-header"></div>
+            <div class="skeleton-line"></div>
+            <div class="skeleton-line"></div>
+            <div class="skeleton-line"></div>
+            <div class="skeleton-line"></div>
+        </div>
+    </div>
+
+    <!-- 游戏详情弹窗-->
+    <div class="game-detail-overlay" id="gameDetail">
+        <div class="game-detail-container">
+            <div class="game-detail-content">
+                <button class="close-button" id="closeGameDetail" aria-label="Close"></button>
+                <h2 id="gameDetailTitle">游戏详情</h2>
+                <div id="gameDetailContent">
+                    <!-- 内容将通过JavaScript动态加载 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- 控制按钮容器 -->
+        <div class="controls">
+            <!-- 主题切换按钮 -->
+            <div class="theme-switcher" id="themeSwitcher">
+                <svg class="theme-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+                <span id="themeText">暗色模式</span>
+            </div>
+            
+            <!-- 语言切换下拉菜单 -->
+            <select id="language-select" class="language-select">
+                <option value="zh">中文</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+        
+    <header>
+        <img src="assets/cheesendless-logo-zh.png" alt="酪无止境" class="main-logo">
+    </header>
+        
+        <div class="nav-tabs">
+            <button class="nav-tab active" data-tab="games" data-i18n="games">游戏</button>
+            <button class="nav-tab" data-tab="videos" data-i18n="videos">视频</button>
+            <button class="nav-tab" data-tab="projects" data-i18n="projects">项目</button>
+            <button class="nav-tab" data-tab="about" data-i18n="about">关于</button>
+        </div>
+        
+        <div id="projects" class="tab-content">
+            <h2 data-i18n="featured-projects">精选项目</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="card-content">
+                        <h3 data-i18n="project1-title"></h3>
+                        <p data-i18n="project1-desc"></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="card-content">
+                        <h3 data-i18n="project2-title"></h3>
+                        <p data-i18n="project2-desc"></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="card-content">
+                        <h3 data-i18n="project3-title"></h3>
+                        <p data-i18n="project3-desc"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="games" class="tab-content active">
+            <h2 data-i18n="game-development">游戏开发</h2>
+            <div class="grid">
+                <div class="card">
+                    <!-- 根据语言切换的图片 -->
+                    <img id="geometry-survivor-img" src="assets/geometry-survivor-zh.png" alt="几何幸存者" class="card-image">
+                    <div class="card-content">
+                        <h3 data-i18n="game1-title">几何幸存者</h3>
+                        <p data-i18n="game1-desc">在几何世界中生存的创意游戏，使用Scratch开发。</p>
+                        <button class="card-button" data-game="geometry-survivor" data-i18n="view-details">查看详情</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <!-- 根据语言切换的图片 -->
+                    <img id="crops-vs-farmers-img" src="assets/crops-vs-farmers-zh.png" alt="庄稼大战农民" class="card-image">
+                    <div class="card-content">
+                        <h3 data-i18n="game2-title">庄稼大战农民</h3>
+                        <p data-i18n="game2-desc">一款益智策略类塔防御战游戏，使用Scratch开发。</p>
+                        <button class="card-button" data-game="crops-vs-farmers" data-i18n="view-details">查看详情</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="videos" class="tab-content">
+            <h2 data-i18n="video-works">视频作品</h2>
+            <div class="grid">
+                <div class="card">
+                    <!-- 添加data-video-id属性和video-image类 -->
+                    <img id="video1-img" src="assets/Sunaookami-Shiroko.png" class="card-image video-image" data-video-id="video1">
+                    <div class="card-content">
+                        <h3 data-i18n="video1-title">视频1</h3>
+                        <p data-i18n="video1-desc">说明1</p>
+                        <a href="https://www.bilibili.com/video/BV1wW421N7bJ" class="card-button video-link" target="_blank" data-i18n="watch-video" data-video-id="video1">观看视频</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <!-- 添加data-video-id属性和video-image类 -->
+                    <img id="video2-img" src="assets/wind.png" class="card-image video-image" data-video-id="video2">
+                    <div class="card-content">
+                        <h3 data-i18n="video2-title">视频2</h3>
+                        <p data-i18n="video2-desc">说明2</p>
+                        <a href="https://www.bilibili.com/video/BV1Um4y1E7nk" class="card-button video-link" target="_blank" data-i18n="watch-video" data-video-id="video2">观看视频</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <!-- 添加data-video-id属性和video-image类 -->
+                    <img id="video3-img" src="assets/old-promotional-video.png" class="card-image video-image" data-video-id="video3">
+                    <div class="card-content">
+                        <h3 data-i18n="video3-title">视频3</h3>
+                        <p data-i18n="video3-desc">说明3</p>
+                        <a href="https://www.bilibili.com/video/BV1ufyaYfEVn" class="card-button video-link" target="_blank" data-i18n="watch-video" data-video-id="video3">观看视频</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="about" class="tab-content">
+            <h2 data-i18n="about-me">关于我</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p data-i18n="about-text1">嘿！我是酪无止境，</p>
+                    <p data-i18n="about-text2">一位年轻的独立游戏开发者，希望能获得一些关注者！</p>
+                    <p data-i18n="about-text3">我希望能得到对我项目的一些支持和反馈，</p>
+                    <p data-i18n="about-text4">所以非常欢迎你游玩我的项目！:D</p>
+                    
+                    <div class="social-links">
+                        <!-- 中文平台 -->
+                        <a href="https://qm.qq.com/q/MP99LcI08e" class="social-link social-zh" aria-label="qq" target="_blank" rel="noopener noreferrer"><img src="assets/qq.svg" style="width: 80%;"></a>
+                        <a href="https://space.bilibili.com/1375543122" class="social-link social-zh" aria-label="bilibili" target="_blank" rel="noopener noreferrer"><img src="assets/bilibili.svg" style="width: 80%;"></a>
+                        
+                        <!-- 英文平台 -->
+                        <a href="https://x.com/CHEESENDLESS" class="social-link social-en" aria-label="x" target="_blank" rel="noopener noreferrer"><img src="assets/x.svg" style="width: 80%;"></a>
+                        <a href="https://youtube.com/@CHEESENDLESS" class="social-link social-en" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><img src="assets/youtube.svg" style="width: 80%;"></a>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="assets/cheesendless.png" style="height: 300px;">
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p data-i18n="footer-text">© 2025 酪无止境 | 保留所有权利</p>
+        </footer>
+    </div>
+        
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
